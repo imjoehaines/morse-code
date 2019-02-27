@@ -79,23 +79,23 @@ view model =
                 ]
             , label [ style "display" "block", style "margin-bottom" "1rem" ]
                 [ text "Morse code"
-                , div []
-                    [ input
-                        [ onInput UpdateMorseCode
-                        , disabled <| model.mode == MorseCodeToEnglish
-                        ]
-                        []
+                , input
+                    [ style "display" "block"
+                    , style "width" "20rem"
+                    , onInput UpdateMorseCode
+                    , disabled <| model.mode == MorseCodeToEnglish
                     ]
+                    []
                 ]
             , label [ style "display" "block" ]
                 [ text "English"
-                , div []
-                    [ input
-                        [ onInput UpdateEnglish
-                        , disabled <| model.mode == EnglishToMorseCode
-                        ]
-                        []
+                , input
+                    [ style "display" "block"
+                    , style "width" "20rem"
+                    , onInput UpdateEnglish
+                    , disabled <| model.mode == EnglishToMorseCode
                     ]
+                    []
                 ]
             ]
         ]
