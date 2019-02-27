@@ -55,7 +55,7 @@ update msg model =
             ( { model | morseCode = morseCode }, Cmd.none )
 
         UpdateEnglish english ->
-            ( { model | english = english }, Cmd.none )
+            ( { model | english = english, morseCode = convertEnglishToMorseCode english }, Cmd.none )
 
         SwitchMode ->
             case model.mode of
@@ -112,3 +112,153 @@ modeToString mode =
 
         MorseCodeToEnglish ->
             "Morse Code to English"
+
+
+convertEnglishToMorseCode : String -> String
+convertEnglishToMorseCode english =
+    english
+        |> String.toList
+        |> List.map convertEnglishCharacterToMorseCode
+        |> String.join " "
+
+
+convertEnglishCharacterToMorseCode : Char -> String
+convertEnglishCharacterToMorseCode character =
+    case Char.toUpper character of
+        'A' ->
+            ".-"
+
+        'B' ->
+            "-..."
+
+        'C' ->
+            "-.-."
+
+        'D' ->
+            "-.."
+
+        'E' ->
+            "."
+
+        'F' ->
+            "..-."
+
+        'G' ->
+            "--."
+
+        'H' ->
+            "...."
+
+        'I' ->
+            ".."
+
+        'J' ->
+            ".---"
+
+        'K' ->
+            "-.-"
+
+        'L' ->
+            ".-.."
+
+        'M' ->
+            "--"
+
+        'N' ->
+            "-."
+
+        'O' ->
+            "---"
+
+        'P' ->
+            ".--."
+
+        'Q' ->
+            "--.-"
+
+        'R' ->
+            ".-."
+
+        'S' ->
+            "..."
+
+        'T' ->
+            "-"
+
+        'U' ->
+            "..-"
+
+        'V' ->
+            "...-"
+
+        'W' ->
+            ".--"
+
+        'X' ->
+            "-..-"
+
+        'Y' ->
+            "-.--"
+
+        'Z' ->
+            "--.."
+
+        '1' ->
+            ".----"
+
+        '2' ->
+            "..---"
+
+        '3' ->
+            "...--"
+
+        '4' ->
+            "....-"
+
+        '5' ->
+            "....."
+
+        '6' ->
+            "-...."
+
+        '7' ->
+            "--..."
+
+        '8' ->
+            "---.."
+
+        '9' ->
+            "----."
+
+        '0' ->
+            "-----"
+
+        ',' ->
+            "--..--"
+
+        '.' ->
+            ".-.-.-"
+
+        '?' ->
+            "..--.."
+
+        ';' ->
+            "-.-.-"
+
+        ':' ->
+            "---..."
+
+        '/' ->
+            "-..-."
+
+        '-' ->
+            "-....-"
+
+        '\'' ->
+            ".----."
+
+        ' ' ->
+            "   "
+
+        _ ->
+            ""
