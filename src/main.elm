@@ -83,7 +83,7 @@ view model =
                     [ style "display" "block"
                     , style "width" "20rem"
                     , onInput UpdateMorseCode
-                    , disabled <| model.mode == MorseCodeToEnglish
+                    , disabled <| model.mode == EnglishToMorseCode
                     ]
                     []
                 ]
@@ -93,7 +93,7 @@ view model =
                     [ style "display" "block"
                     , style "width" "20rem"
                     , onInput UpdateEnglish
-                    , disabled <| model.mode == EnglishToMorseCode
+                    , disabled <| model.mode == MorseCodeToEnglish
                     ]
                     []
                 ]
