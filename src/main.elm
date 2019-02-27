@@ -78,22 +78,22 @@ view model =
                 , button [ onClick SwitchMode ] [ text "Switch Mode" ]
                 ]
             , label [ style "display" "block", style "margin-bottom" "1rem" ]
-                [ text "Morse code"
-                , input
-                    [ style "display" "block"
-                    , style "width" "20rem"
-                    , onInput UpdateMorseCode
-                    , disabled <| model.mode == EnglishToMorseCode
-                    ]
-                    []
-                ]
-            , label [ style "display" "block" ]
                 [ text "English"
                 , input
                     [ style "display" "block"
                     , style "width" "20rem"
                     , onInput UpdateEnglish
                     , disabled <| model.mode == MorseCodeToEnglish
+                    ]
+                    []
+                ]
+            , label [ style "display" "block" ]
+                [ text "Morse code"
+                , input
+                    [ style "display" "block"
+                    , style "width" "20rem"
+                    , onInput UpdateMorseCode
+                    , disabled <| model.mode == EnglishToMorseCode
                     ]
                     []
                 ]
