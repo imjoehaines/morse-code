@@ -2,7 +2,7 @@ module Main exposing (..)
 
 import Browser
 import Html exposing (Html, p, div, input, button, label, h1, text, strong)
-import Html.Attributes exposing (style, disabled)
+import Html.Attributes exposing (style, disabled, value)
 import Html.Events exposing (onInput, onClick)
 
 
@@ -84,6 +84,7 @@ view model =
                     , style "width" "20rem"
                     , onInput UpdateEnglish
                     , disabled <| model.mode == MorseCodeToEnglish
+                    , value model.english
                     ]
                     []
                 ]
@@ -94,6 +95,7 @@ view model =
                     , style "width" "20rem"
                     , onInput UpdateMorseCode
                     , disabled <| model.mode == EnglishToMorseCode
+                    , value model.morseCode
                     ]
                     []
                 ]
